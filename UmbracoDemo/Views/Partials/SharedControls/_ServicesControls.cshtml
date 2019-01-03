@@ -1,0 +1,36 @@
+﻿@inherits UmbracoViewPage<List<Service>>
+@using UmbracoDemo.Models
+
+
+
+@foreach(Service Service in Model)
+{
+    @RenderServiceItem(Service)
+}
+
+
+
+@helper RenderServiceItem(Service Item)
+{
+    if (Umbraco.AssignedContentItem.Name.Equals("Home"))
+    {
+        <div class="col-md-4 services-inner text-center">
+            <span><i class="@Item.Icon"></i></span>
+            <h3>@Item.Title</h3>
+            <p>@Item.Description</p>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-12 services-inner">
+            <span><i class="@Item.Icon"></i></span>
+            <div class="desc">
+                <h3>@Item.Title</h3>
+                <p>@Item.Description</p>
+            </div>
+        </div>
+    }
+
+
+
+}

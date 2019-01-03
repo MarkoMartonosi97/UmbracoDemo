@@ -1,0 +1,26 @@
+﻿<header id="fh5co-header" role="banner">
+    <div class="container">
+        <div class="header-inner">
+            <h1><i class="sl-icon-energy"></i><a href="/">Lesser</a></h1>
+            <nav role="navigation">
+                <ul>
+
+                    @{string UrlString = Context.Request.Url.ToString();}
+                    @{Uri Uri = new Uri(UrlString);}
+                    @{string PathAndQuery = Uri.PathAndQuery;}
+                    @{string ActivePage = PathAndQuery.Split('/')[1];}
+
+
+
+                    <li><a class="@(ActivePage.Equals("") ? "active" : "")" href="/">Home</a></li>
+                    <li><a class="@(ActivePage.Equals("blog") ? "active" : "")" href="/blog">Blog</a></li>
+                    <li><a class="@(ActivePage.Equals("portfolio") ? "active" : "")" href="/portfolio">Portfolio</a></li>
+                    <li><a class="@(ActivePage.Equals("services") ? "active" : "")" href="/services">Services</a></li>
+                    <li><a class="@(ActivePage.Equals("about") ? "active" : "")" href="/about">About</a></li>
+                    <li><a class="@(ActivePage.Equals("contact") ? "active" : "")" href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
